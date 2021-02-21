@@ -1,6 +1,7 @@
 import logging
 import pymongo
 
+
 class MongoHandler(logging.Handler):
     def __init__(self,host, db, collection ):
         super().__init__()
@@ -16,6 +17,5 @@ class MongoHandler(logging.Handler):
             mycol.insert_one(record.__dict__)
             myclient.close()
         except Exception as e:
-            print('CRITICAL DB ERROR! Logging to database not possible!')
+            print('CRITICAL DB ERROR! Logging to database not possible!:')
             print(e)
-
