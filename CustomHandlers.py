@@ -8,16 +8,7 @@ class MongoHandler(logging.Handler):
         self.db = db
         self.collection = collection
         self.myclient= None
-        self.internal_logger = self.set_internal_logger(level)
-
-    def set_internal_logger(self, level):
-        internal_logger = logging.getLogger('intermal-mongo-logger')
-        internal_logger.setLevel(level)
-        stream_formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-        handler = logging.StreamHandler()
-        handler.setFormatter(stream_formatter)
-        internal_logger.addHandler(handler)
-        return internal_logger
+        self.internal_logger = logging.getLogger('intermal-mongo-logger')
 
     def emit(self, record):
         try:

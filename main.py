@@ -3,11 +3,14 @@ from CustomHandlers import MongoHandler
 import socket
 from Messages import Message
 
+# Variables
 hostname = socket.gethostname()
 internal_ip = socket.gethostbyname(socket.gethostname())
 
+# Configs
 logging.raiseExceptions = False
 
+# Main logger - mongo and console
 my_logger = logging.getLogger('mongo-logger')
 my_logger.setLevel(logging.INFO)
 
@@ -22,6 +25,15 @@ mongo_handler.setFormatter(mongo_formatter)
 my_logger.addHandler(stream_handler)
 my_logger.addHandler(mongo_handler)
 
+# Internal logger - console
+internal_logger = logging.getLogger('intermal-mongo-logger')
+internal_logger.setLevel(logging.DEBUG)
+stream_formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+handler = logging.StreamHandler()
+handler.setFormatter(stream_formatter)
+internal_logger.addHandler(handler)
+
+# Send logs
 msg = "Another message"
 payload = Message(machine=22,
                   snif=2,
