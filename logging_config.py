@@ -6,7 +6,8 @@ LOGGING_CONFIG = {
             'format': '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
         },
         'with_host': {
-            'format': '%(asctime)s - %(name)s - %(levelname)s - %(message)s - %(host)s'
+            'format': '%(asctime)s - %(name)s - %(levelname)s - %(message)s - %(host)s',
+            'class':'CustomFormatters.ColoredFormatter'
         }
     },
     'handlers': {

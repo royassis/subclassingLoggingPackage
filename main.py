@@ -11,7 +11,7 @@ internal_ip = socket.gethostbyname(socket.gethostname())
 dictConfig(LOGGING_CONFIG)
 
 # Configs
-logging.raiseExceptions = True
+logging.raiseExceptions = False
 
 # Main logger - mongo and console
 my_logger = logging.getLogger('mongo-logger')
