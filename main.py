@@ -2,10 +2,15 @@ import logging
 from CustomHandlers import MongoHandler
 import socket
 from Messages import Message
+import json
+from logging.config import dictConfig
+from logging_config import LOGGING_CONFIG
 
 # Variables
 hostname = socket.gethostname()
 internal_ip = socket.gethostbyname(socket.gethostname())
+
+dictConfig(LOGGING_CONFIG)
 
 # Configs
 logging.raiseExceptions = False
