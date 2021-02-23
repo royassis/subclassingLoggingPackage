@@ -1,6 +1,7 @@
 import logging
 import pymongo
 
+
 class MongoHandler(logging.Handler):
     def __init__(self,host, db, collection, level=logging.DEBUG):
         super().__init__()
@@ -8,7 +9,7 @@ class MongoHandler(logging.Handler):
         self.db = db
         self.collection = collection
         self.myclient= None
-        self.internal_logger = logging.getLogger('intermal-mongo-logger')
+        self.internal_logger = logging.getLogger('internal-mongo-logger')
 
     def emit(self, record):
         try:
@@ -31,6 +32,6 @@ class MongoHandler(logging.Handler):
     def close(self):
         try:
             self.myclient.close()
-            self.internal_logger.debug("Closing connection of logger to MongoDB")
+            self.internal_logger.info("Closing connection of logger to MongoDB")
         except AttributeError:
             pass
