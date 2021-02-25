@@ -17,7 +17,7 @@ handlers:
         level: "INFO"
         formatter: "standard"
         class: "CustomHandlers.MongoHandler"
-        host: "localhost:27017--"
+        host: "localhost:27017"
         db: "testdb"
         collection: "testcollection"
 

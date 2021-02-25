@@ -13,12 +13,10 @@ class MongoHandler(logging.Handler):
 
     def emit(self, record):
         try:
-            myclient = pymongo.MongoClient(f"mongodb://{self.host}/", serverSelectionTimeoutMS= 1000)
-            self.myclient = myclient
-            mycol = myclient[self.db][self.collection]
-            # msg = self.format(record)
-            mycol.insert_one(record.__dict__)
-            # myclient.close()
+            with pymongo.MongoClient(f"mongodb://{self.host}/", serverSelectionTimeoutMS= 1000) as myclient:
+                mycol = myclient[self.db][self.collection]
+                # msg = self.format(record)
+                mycol.insert_one(record.__dict__)
         except:
             self.handleError(record)
 
@@ -26,12 +24,4 @@ class MongoHandler(logging.Handler):
         if logging.raiseExceptions:
             self.internal_logger.exception("Could not write to mongo")
         else:
-            pass
-
-
-    def close(self):
-        try:
-            self.myclient.close()
-            self.internal_logger.info("Closing connection of logger to MongoDB")
-        except AttributeError:
             pass

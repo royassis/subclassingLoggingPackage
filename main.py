@@ -13,7 +13,6 @@ with open('logging_config.yaml', 'rt') as file:
 hostname = socket.gethostname()
 internal_ip = socket.gethostbyname(socket.gethostname())
 
-
 # Configs
 logging.raiseExceptions = False
 
@@ -26,5 +25,6 @@ payload = Message(machine=22,
                   host=hostname,
                   internal_ip=internal_ip)
 
-my_logger.info("message", extra= payload.as_dict())
+my_logger.info("some info message", extra= payload.as_dict())
+my_logger.error("some warning message", extra= payload.as_dict())
 
