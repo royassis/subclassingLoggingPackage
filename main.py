@@ -2,13 +2,17 @@ import logging
 import socket
 from Messages import Message
 from logging.config import dictConfig
-from logging_config import LOGGING_CONFIG
+import yaml
+
+
+with open('logging_config.yaml', 'rt') as file:
+    config = yaml.safe_load(file.read())
+    dictConfig(config)
 
 # Variables
 hostname = socket.gethostname()
 internal_ip = socket.gethostbyname(socket.gethostname())
 
-dictConfig(LOGGING_CONFIG)
 
 # Configs
 logging.raiseExceptions = False
