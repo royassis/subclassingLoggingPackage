@@ -3,7 +3,7 @@ import pymongo
 
 
 class MongoHandler(logging.Handler):
-    def __init__(self,host, db, collection, level=logging.DEBUG):
+    def __init__(self,host, db, collection):
         super().__init__()
         self.host = host
         self.db = db
@@ -13,6 +13,7 @@ class MongoHandler(logging.Handler):
 
     def emit(self, record):
         try:
+            #TODO: pool connection ?
             with pymongo.MongoClient(f"mongodb://{self.host}/", serverSelectionTimeoutMS= 1000) as myclient:
                 mycol = myclient[self.db][self.collection]
                 # msg = self.format(record)
