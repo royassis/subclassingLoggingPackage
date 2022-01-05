@@ -1,7 +1,7 @@
 from pathlib import Path
 
 from setuptools import setup, find_packages
-from src.formatConverterCli import __version__
+from customHandlers import __version__
 
 THIS_DIR = Path(__file__).parent
 
