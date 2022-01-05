@@ -1,14 +1,13 @@
 import logging
-import unittest
-from pathlib import Path
-import logging
 import socket
-from Messages import Message
+import unittest
 from logging.config import dictConfig
+from pathlib import Path
+
 import yaml
 
-
-from myhandlers import CustomRotatingFileHandler, CustomFileHandler
+from CustomHandlers import CustomRotatingFileHandler, CustomFileHandler
+from Messages import Message
 
 
 class TestCustomLoggers(unittest.TestCase):
@@ -64,5 +63,3 @@ class TestCustomLoggers(unittest.TestCase):
 
         my_logger.info("some info message", extra=payload.as_dict())
         my_logger.error("some warning message", extra=payload.as_dict())
-
-
