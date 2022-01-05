@@ -5,7 +5,7 @@ from logging.config import dictConfig
 import yaml
 
 
-with open('logging_config.yaml', 'rt') as file:
+with open('logging_config_files/logging_config.yaml', 'rt') as file:
     config = yaml.safe_load(file.read())
     dictConfig(config)
 
