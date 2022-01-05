@@ -7,6 +7,8 @@ THIS_DIR = Path(__file__).parent
 
 REQUIREMENTS_FILE = THIS_DIR.joinpath("requirements.txt")
 
+print(REQUIREMENTS_FILE)
+
 install_requires = []
 with open(REQUIREMENTS_FILE) as fh:
     for line in fh:
