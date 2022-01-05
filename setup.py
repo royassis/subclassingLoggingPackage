@@ -1,7 +1,7 @@
 from pathlib import Path
 
 from setuptools import setup, find_packages
-from customHandlers import __version__
+from src.customHandlers import __version__
 
 THIS_DIR = Path(__file__).parent
 
@@ -24,6 +24,6 @@ setup(
     python_requires='>=3.8',
     install_requires=install_requires,
     include_package_data=True,
-    package_dir={"": "customHandlers"},
-    packages=find_packages(where="customHandlers"),
+    package_dir={"": "src"},
+    packages=find_packages(where="src"),
 )

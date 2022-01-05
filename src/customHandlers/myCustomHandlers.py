@@ -5,7 +5,7 @@ from logging import FileHandler
 from pathlib import Path
 from logging.handlers import RotatingFileHandler
 
-from helpers import rename_logfiles
+from customHandlers.helpers import rename_logfiles
 
 
 class MongoHandler(logging.Handler):

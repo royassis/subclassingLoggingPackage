@@ -6,7 +6,7 @@ from pathlib import Path
 
 import yaml
 
-from customHandlers import CustomRotatingFileHandler, CustomFileHandler
+from myCustomHandlers import CustomRotatingFileHandler, CustomFileHandler
 from Messages import Message
 
 
